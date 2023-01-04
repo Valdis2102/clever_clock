@@ -45,18 +45,20 @@ function ms(input) {
 //Запуск таймера
 function startTimer(inp, vis, start_button) {
     isStop = false;
+    isPause = false;
     start_button.attr('disabled', true);
     let milis = setTimer(inp,vis);    
     transform(milis, vis,);
+    console.log('start: ' + x);
 };
 
 //Счётчик таймера
 function transform (milisec, vis){
-    setInterval (function(){
+    x = setInterval (function(){
         if(milisec>0 && !isStop){
             if(!isPause){
                 milisec = milisec - 1000;
-                console.log(milisec);
+                
                 HH = Math.floor((milisec / 1000 / 60 / 60) % 24);
                 MM = Math.floor((milisec / 1000 / 60) % 60);
                 SS = (milisec / 1000) % 60;
@@ -65,10 +67,24 @@ function transform (milisec, vis){
                 if (SS < 10) { SS = "0" + SS };
                 let result = HH + ':' + MM + ':' + SS;
                 vis.html(result);
+                
+               console.log('1: ' + milisec);
+               return milisec;
+            }else{
+                console.log('2: ' + milisec);                
+                return milisec;
             };
         };
+        if(milisec == 0 || isStop){
+            clearInterval(x);
+        };
+        if(milisec == 0){
+            timer_sound.play();
+        };
+        console.log('3: ' + milisec);
+        return milisec;
     },1000);
-    return
+    console.log('4: ' + x);
 };
 
 function autores(){
@@ -77,6 +93,7 @@ function autores(){
 
 //функции для кнопок ПАУЗА и СТОП.
 $('#timer_pause').on('click', paused);
+$('#timer_pause2').on('click', paused);
 let isPause = false;
 let isStop = false;
 function paused() {
