@@ -30,10 +30,10 @@
                 </div>
             </div>
             <div class="timer" id="timer">00:00:00</div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-secondary" id="timer_start" onclick="startTimer($('#timer_input').val(), $('#timer'), $('#timer_start'))">Start</button>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-secondary" id="timer_start" onclick="startTimer($('#timer_input').val(), $('#timer'), $('#autorestart'), $('#timer_start'))">Start</button>
                 <button type="button" class="btn btn-outline-secondary" id="timer_pause" onclick="">Pause</button>
-                <button type="button" class="btn btn-outline-secondary" id="timer_stop" onclick="timerStop($('#timer_start'), $('#timer_input').val(), $('#timer'))">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_stop" onclick="">Reset</button>
             </div>
             <br>
             <button type="button" class="btn btn-secondary" id="add_timer" onclick="add_timer()">Add second timer</button>
@@ -53,9 +53,9 @@
             </div>
             <div class="timer" id="timer2">00:00:00</div>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-secondary" id="timer_start2" onclick="startTimer($('#timer_input2').val(), $('#timer2'), $('#timer_start2'))">Start</button>
-                <button type="button" class="btn btn-outline-secondary" id="timer_pause2" onclick="">Pause</button>
-                <button type="button" class="btn btn-outline-secondary" id="timer_stop2" onclick="timerStop($('#timer_start2'), $('#timer_input2').val(), $('#timer2'))">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_start2" onclick="startTimer($('#timer_input2').val(), $('#timer2'), $('#autorestart2'),  $('#timer_start2'))">Start</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_pause2" onclick="pauseTimer()">Pause</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_stop2" onclick="stopTimer()">Reset</button>
             </div>
         </div>
         
