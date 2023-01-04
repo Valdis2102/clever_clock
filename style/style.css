@@ -1,0 +1,62 @@
+body{
+    background-color: rgb(40, 31, 46);
+    color: white;
+}
+
+.wrapper{
+    max-width: 1300px;
+}
+
+.clock-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+}
+.clock{
+    align-items: center;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.input-group{
+    min-width: 350px;
+}
+.form-check{
+    margin-left: 5%;
+    font-size: 1.5rem;
+    width: 40%;
+    text-align: start;
+}
+.form-control{
+    font-size: 1.5rem;
+}
+.timer-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+}
+.row{
+    display: block;
+}
+.timer{
+    align-items: center;
+    font-size: 5rem;
+}
+.btn{
+    font-size: 1.5rem;
+}
+.btn-group{
+    width: 50%;
+}
+.second-timer{
+    display: none;
+}
+
+
+@media (max-width: 650px) {
+    .clock{
+        font-size: 15vw;
+    }
+}

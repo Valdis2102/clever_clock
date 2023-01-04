@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+    <title>clock</title>
+</head>
+<body>
+    
+    
+    <header>
+        <div class="clock-wrap">
+            <div class="clock" id="clock">00:00:00</div>
+        </div>
+    </header> 
+    <main>
+
+        <div class="timer-wrap container">
+            <div class="timer_option row">
+                <div class="input-group mb-3 col-sm">
+                    <button class="btn btn-outline-secondary" type="button" id="set_timer" onclick="setTimer($('#timer_input').val(), $('#timer'))" disabled="true">Set a timer</button>
+                    <input type="time" id="timer_input" class="form-control" value="00:00:00" step="1">
+                </div>
+                <div class="form-check form-switch col-sm">
+                    <input class="form-check-input" type="checkbox" id="autorestart">
+                    <label class="form-check-label" for="autorestart">Autorestart</label>
+                </div>
+            </div>
+            <div class="timer" id="timer">00:00:00</div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-secondary" id="timer_start" onclick="startTimer($('#timer_input').val(), $('#timer'), $('#timer_start'))">Start</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_pause" onclick="">Pause</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_stop" onclick="timerStop($('#timer_start'), $('#timer_input').val(), $('#timer'))">Reset</button>
+            </div>
+            <br>
+            <button type="button" class="btn btn-secondary" id="add_timer" onclick="add_timer()">Add second timer</button>
+            <button type="button" class="btn btn-dark" id="remove_timer" onclick="remove_timer()">Remove second timer</button>
+        </div>
+
+        <div class="timer-wrap container second-timer">
+            <div class="timer_option row">
+                <div class="input-group mb-3 col-sm">
+                    <button class="btn btn-outline-secondary" type="button" id="set_timer2" onclick="setTimer($('#timer_input2').val(), $('#timer2'))">Set a timer</button>
+                    <input type="time" id="timer_input2" class="form-control" value="00:00:00" step="2">
+                </div>
+                <div class="form-check form-switch col-sm">
+                    <input class="form-check-input" type="checkbox" id="autorestart2">
+                    <label class="form-check-label" for="autorestart2">Autorestart</label>
+                </div>
+            </div>
+            <div class="timer" id="timer2">00:00:00</div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-secondary" id="timer_start2" onclick="startTimer($('#timer_input2').val(), $('#timer2'), $('#timer_start2'))">Start</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_pause2" onclick="">Pause</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_stop2" onclick="timerStop($('#timer_start2'), $('#timer_input2').val(), $('#timer2'))">Reset</button>
+            </div>
+        </div>
+        
+    </main>   
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="code/js.js"></script>
+</body>
+</html>
