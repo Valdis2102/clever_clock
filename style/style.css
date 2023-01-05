@@ -54,6 +54,9 @@ body{
 .btn-group{
     width: 50%;
 }
+.hid{
+    display: none;
+}
 .second-timer{
     display: none;
 }

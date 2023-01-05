@@ -26,13 +26,12 @@ $('#timer_input2').keyup($('#set_timer2')[0].onclick);
 
 function setTimer(inp, vis) {
     vis.html(inp);
-    let milisec = ms(inp);
-    return milisec;
 };
 
 //расчёт милисекунд из input
 function ms(input) {
     let time = input;
+    console.log(time);
     let dataTime = time.split(":");
     let dataNum = dataTime.map(item => Number(item));
     let HH = dataNum[0];
@@ -43,22 +42,20 @@ function ms(input) {
 };
 
 //Запуск таймера
-function startTimer(inp, vis, start_button) {
-    isStop = false;
-    isPause = false;
-    start_button.attr('disabled', true);
-    let milis = setTimer(inp,vis);    
-    transform(milis, vis,);
-    console.log('start: ' + x);
+function startTimer(vis, start_btn, pause_btn, stop_btn) {
+    start_btn.addClass('hid');
+    stop_btn.removeClass('hid');
+    pause_btn.attr('disabled', false);
+    let milis = ms(vis[0].outerText);
+    transform(milis, vis, pause_btn, start_btn);
 };
 
 //Счётчик таймера
-function transform (milisec, vis){
-    x = setInterval (function(){
-        if(milisec>0 && !isStop){
-            if(!isPause){
-                milisec = milisec - 1000;
-                
+function transform (milisec, vis, pause_btn, start_btn){
+   let x = setInterval (function(){
+        if(milisec>0 && start_btn.hasClass('hid')){
+            if(!pause_btn.hasClass('hid')){
+                milisec = milisec - 1000;                
                 HH = Math.floor((milisec / 1000 / 60 / 60) % 24);
                 MM = Math.floor((milisec / 1000 / 60) % 60);
                 SS = (milisec / 1000) % 60;
@@ -66,61 +63,65 @@ function transform (milisec, vis){
                 if (MM < 10) { MM = "0" + MM };
                 if (SS < 10) { SS = "0" + SS };
                 let result = HH + ':' + MM + ':' + SS;
-                vis.html(result);
-                
+                vis.html(result);                
                console.log('1: ' + milisec);
                return milisec;
             }else{
-                console.log('2: ' + milisec);                
-                return milisec;
+                console.log('2: ' + milisec);          
             };
         };
-        if(milisec == 0 || isStop){
+        if(!start_btn.hasClass('hid')){
             clearInterval(x);
+            milisec = 0;
         };
         if(milisec == 0){
             timer_sound.play();
+            clearInterval(x);
         };
-        console.log('3: ' + milisec);
-        return milisec;
     },1000);
-    console.log('4: ' + x);
 };
 
-function autores(){
-    console.log('autorestart');
+let ti = function tim(vis){
+    let time = vis[0].outerText;
+    console.log(time);
+    return time;
 };
 
 //функции для кнопок ПАУЗА и СТОП.
-$('#timer_pause').on('click', paused);
-$('#timer_pause2').on('click', paused);
-let isPause = false;
-let isStop = false;
-function paused() {
-    if (isPause == false) {
-        isPause = true;
-        console.log('pause on');
-    } else {
-        isPause = false;
-        console.log('pause off');
-    };
+function paused(pause_btn, run_btn) {
+    pause_btn.addClass('hid');
+    run_btn.removeClass('hid');
+    console.log('pause on');
 };
-function timerStop(start, inp, vis) {
-        isStop = true;
-        console.log('timer-stoped');
-        start.attr('disabled', false);
-        setTimer(inp, vis);
+
+function run(vis, pause_btn, run_btn, start_btn){
+    run_btn.addClass('hid');
+    pause_btn.removeClass('hid');
+    let bug = ti(vis);
+    let milis = ms(bug);
+    console.log('pause off');
+    transform(milis, vis, pause_btn, start_btn);  
+};
+
+//Функция для RESET
+function timerStop(start_btn, stop_btn, inp, vis, pause_btn, run_btn) {
+    stop_btn.addClass('hid');
+    start_btn.removeClass('hid');
+    run_btn.addClass('hid');
+    pause_btn.removeClass('hid').attr('disabled', true);
+    console.log('timer-stoped');
+    setTimer(inp, vis);
 };
 
 // добавление/скрытие нового таймера
-$('#remove_timer').attr('disabled', true);
 function add_timer() {
     $('.second-timer').css('display', 'flex');
     $('#add_timer').attr('disabled', true);
     $('#remove_timer').attr('disabled', false);
 };
-function remove_timer() {
+function remove_timer(start_btn, stop_btn, inp, vis, pause_btn, run_btn) {
     $('.second-timer').css('display', 'none');
     $('#add_timer').attr('disabled', false);
     $('#remove_timer').attr('disabled', true);
+    timerStop(start_btn, stop_btn, inp, vis, pause_btn, run_btn);
 };

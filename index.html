@@ -30,19 +30,20 @@
             </div>
             <div class="timer" id="timer">00:00:00</div>
             <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-secondary" id="timer_start" onclick="startTimer($('#timer_input').val(), $('#timer'), $('#timer_start'))">Start</button>
-                <button type="button" class="btn btn-outline-secondary" id="timer_pause" onclick="">Pause</button>
-                <button type="button" class="btn btn-outline-secondary" id="timer_stop" onclick="timerStop($('#timer_start'), $('#timer_input').val(), $('#timer'))">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_start" onclick="startTimer($('#timer'), $('#timer_start'), $('#timer_pause'), $('#timer_stop'))">Start</button>
+                <button type="button" class="btn btn-outline-secondary hid" id="timer_stop" onclick="timerStop($('#timer_start'), $('#timer_stop'), $('#timer_input').val(), $('#timer'), $('#timer_pause'), $('#timer_run'))">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_pause" onclick="paused($('#timer_pause'), $('#timer_run'))" disabled="true">Pause</button>
+                <button type="button" class="btn btn-outline-secondary hid" id="timer_run" onclick="run($('#timer'), $('#timer_pause'), $('#timer_run'), $('#timer_start'))">RUN</button>
             </div>
             <br>
             <button type="button" class="btn btn-secondary" id="add_timer" onclick="add_timer()">Add second timer</button>
-            <button type="button" class="btn btn-dark" id="remove_timer" onclick="remove_timer()">Remove second timer</button>
+            <button type="button" class="btn btn-dark" id="remove_timer" onclick="remove_timer($('#timer_start2'), $('#timer_stop2'), $('#timer_input2').val(), $('#timer2'), $('#timer_pause2'), $('#timer_run2'))">Remove second timer</button>
         </div>
 
         <div class="timer-wrap container second-timer">
             <div class="timer_option row">
                 <div class="input-group mb-3 col-sm">
-                    <button class="btn btn-outline-secondary" type="button" id="set_timer2" onclick="setTimer($('#timer_input2').val(), $('#timer2'))">Set a timer</button>
+                    <button class="btn btn-outline-secondary" type="button" id="set_timer2" onclick="setTimer($('#timer_input2').val(), $('#timer2'))" disabled="true">Set a timer</button>
                     <input type="time" id="timer_input2" class="form-control" value="00:00:00" step="2">
                 </div>
                 <div class="form-check form-switch col-sm">
@@ -52,9 +53,10 @@
             </div>
             <div class="timer" id="timer2">00:00:00</div>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-secondary" id="timer_start2" onclick="startTimer($('#timer_input2').val(), $('#timer2'), $('#timer_start2'))">Start</button>
-                <button type="button" class="btn btn-outline-secondary" id="timer_pause2" onclick="">Pause</button>
-                <button type="button" class="btn btn-outline-secondary" id="timer_stop2" onclick="timerStop($('#timer_start2'), $('#timer_input2').val(), $('#timer2'))">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_start2" onclick="startTimer($('#timer2'), $('#timer_start2'), $('#timer_pause2'), $('#timer_stop2'))">Start</button>
+                <button type="button" class="btn btn-outline-secondary hid" id="timer_stop2" onclick="timerStop($('#timer_start2'), $('#timer_stop2'), $('#timer_input2').val(), $('#timer2'), $('#timer_pause2'), $('#timer_run2'))">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="timer_pause2" onclick="paused($('#timer_pause2'), $('#timer_run2'))", disabled="true">Pause</button>
+                <button type="button" class="btn btn-outline-secondary hid" id="timer_run2" onclick="run($('#timer2'), $('#timer_pause2'), $('#timer_run2'), $('#timer_start2'))">RUN</button>
             </div>
         </div>
         
