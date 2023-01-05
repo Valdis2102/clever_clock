@@ -10,22 +10,27 @@
 </head>
 <body>
 
-    <header class="container">
-        <div class="clock-wrap">
-            <div class="clock" id="clock">00:00:00</div>
+    <header class="wrap container">
+        <div class="city" id="city"></div>
+        <div class="row">            
+            <div class="clock-wrap">
+                <div class="clock" id="clock">00:00:00</div>
+            </div>
         </div>
-    </header> 
+    </header>
+
     <main>
 
-        <div class="timer-wrap container">
+        <div class="wrap container">
+            <div class="title">TIMER settings</div>
             <div class="timer_option row">
-                <div class="input-group mb-3 col-sm">
+                <div class="input-group col-sm">
                     <button class="btn btn-outline-secondary" type="button" id="set_timer" onclick="setTimer($('#timer_input').val(), $('#timer'))" disabled="true">Set a timer</button>
                     <input type="time" id="timer_input" class="form-control" value="00:00:00" step="1">
                 </div>
-                <div class="form-check form-switch col-sm">
-                    <input class="form-check-input" type="checkbox" id="autorestart">
-                    <label class="form-check-label" for="autorestart">Autorestart</label>
+                <div class="form-check form-switch col-sm hid">
+                    <input class="form-check-input" type="checkbox" id="auto_repeat">
+                    <label class="form-check-label" for="auto_repeat">Auto repeat</label>
                 </div>
             </div>
             <div class="timer" id="timer">00:00:00</div>
@@ -40,15 +45,15 @@
             <button type="button" class="btn btn-dark" id="remove_timer" onclick="remove_timer($('#timer_start2'), $('#timer_stop2'), $('#timer_input2').val(), $('#timer2'), $('#timer_pause2'), $('#timer_run2'))">Remove second timer</button>
         </div>
 
-        <div class="timer-wrap container second-timer">
+        <div class="wrap container second-timer">
             <div class="timer_option row">
-                <div class="input-group mb-3 col-sm">
+                <div class="input-group col-sm">
                     <button class="btn btn-outline-secondary" type="button" id="set_timer2" onclick="setTimer($('#timer_input2').val(), $('#timer2'))" disabled="true">Set a timer</button>
                     <input type="time" id="timer_input2" class="form-control" value="00:00:00" step="2">
                 </div>
-                <div class="form-check form-switch col-sm">
-                    <input class="form-check-input" type="checkbox" id="autorestart2">
-                    <label class="form-check-label" for="autorestart2">Autorestart</label>
+                <div class="form-check form-switch col-sm hid">
+                    <input class="form-check-input" type="checkbox" id="auto_repeat2">
+                    <label class="form-check-label" for="auto_repeat2">Autorestart</label>
                 </div>
             </div>
             <div class="timer" id="timer2">00:00:00</div>
@@ -60,9 +65,35 @@
             </div>
         </div>
         
-    </main>   
+    </main>
+
+    <footer>
+        <div class="wrap container">
+            <div class="title">ALARM settings</div>
+            <div class="alarm_option">
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary hid" type="button" id="set_alarm" onclick="" disabled="true">Set an alarm time</button>
+                    <input type="date" id="date_input" class="form-control" value="">
+                    <input type="time" id="time_input" class="form-control" value="">
+                </div>
+                <div class="settings_group">
+                    <div class="form-check form-switch set_alarm">
+                        <input class="form-check-input" type="checkbox" id="repeate">
+                        <label class="form-check-label" for="repeate" id="lable_repeate">once</label>
+                    </div>
+                    <div class="form-check form-switch set_alarm">
+                        <input class="form-check-input" type="checkbox" id="onoff">
+                        <label class="form-check-label" for="onoff" id="lable_onoff">OFF</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="code/js.js"></script>
+    <script src="code/timer.js"></script>
+    <script src="code/userinfo.js"></script>
+    <script src="code/alarm.js"></script>
+    <script src="code/timealarm.js"></script>
 </body>
 </html>

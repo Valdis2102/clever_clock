@@ -1,90 +1,135 @@
-body{
+body {
     background-color: rgb(40, 31, 46);
     color: white;
 }
 
-.wrapper{
-    max-width: 1300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: inline;
+header {
+    margin-top: 5%;
 }
 
-.clock-wrap{
+main {
+    margin-top: 5%;
+}
+
+footer {
+    margin: 5% 0 5% 0;
+}
+
+.city {
+    font-size: 2rem;
+    color: rgb(72, 62, 80);
+}
+
+.clock-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10%;
 }
-.clock{
+
+.clock {
     align-items: center;
     font-size: 5rem;
     font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: rgb(20, 16, 23) solid 5px;
 }
 
-.input-group{
+.input-group {
     min-width: 350px;
+    padding: 0;
 }
-.form-check{
-    margin-left: 5%;
+
+.form-control {
     font-size: 1.5rem;
-    width: 40%;
-    text-align: start;
+    background: rgb(119, 103, 131);
 }
-.form-control{
-    font-size: 1.5rem;
+
+.settings_group {
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-around;
 }
-.timer-wrap{
+
+.wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 3%;
 }
-.row{
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 5%;
+    color: rgb(20, 16, 23);
+    border-bottom: rgb(35, 26, 41) solid 5px;
+    border-top: rgb(20, 16, 23) solid 5px;
+    padding-bottom: 10px;
+}
+
+.row {
     display: block;
+    font-size: 1.3rem;
 }
-.timer{
-    align-items: center;
-    font-size: 5rem;
+
+.timer {
+    font-size: 4rem;
 }
-.btn{
-    font-size: 1.5rem;
+
+.btn {
+    font-size: 1.3rem;
 }
-.btn-group{
-    width: 50%;
+
+.btn-group {
+    width: 35%;
 }
-.hid{
+
+.hid {
     display: none;
 }
-.second-timer{
+
+.second-timer {
     display: none;
 }
 
 
 @media (max-width: 650px) {
-    .clock{
+    .alarm_option {
+        padding-bottom: 10%;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .clock {
         font-size: 2rem;
     }
-    .form-control{
+
+    .form-control {
         font-size: 1rem;
     }
-    .form-check{
+
+    .form-check {
         font-size: 1rem;
     }
-    .timer{
+
+    .timer {
         font-size: 2rem;
     }
-    .btn{
+
+    .btn {
         font-size: 1rem;
     }
-    .row{
+
+    .row {
         margin: auto;
     }
-    .input-group{
+
+    .input-group {
         min-width: 100%;
     }
-    .btn-group{
+
+    .btn-group {
         width: 100%;
     }
-}
+};
