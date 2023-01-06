@@ -47,6 +47,10 @@ function start_alarm() {
                 clearInterval(start);
                 console.log('start 3');
                 $('#onoff').prop('checked', true);
+                $('#date_input').val(reset);
+                $('#lable_onoff').html('ON');
+                block();
+                start_alarm();
             };
             return left;
         };
@@ -67,9 +71,6 @@ function resetDay() {
     let year = now.getFullYear();
     let reset = year + '-' + month + '-' + day;
     console.log('reset Date');
-    $('#date_input').val(reset);
-    $('#lable_onoff').html('ON');
-    block();
-    start_alarm();
+    
     return reset;
 };
