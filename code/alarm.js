@@ -14,6 +14,7 @@ window.onload = function clock() {
         current_time();
     }, 500);
     user_set();
+    loade();
 };
 
 //функция устанавливающая время в HEADER
@@ -44,7 +45,7 @@ function current_date() {
     };
     let year = now.getFullYear();
     let set = year + '-' + month + '-' + day;
-    console.log('current Date');
+    console.log('current Date: ' + set);
     return set;
 };
 
@@ -58,7 +59,7 @@ function setAlarm() {
     console.log('SetAlarm');
 };
 
-// f() меняют названия для checkbox
+// f() работают с checkbox и меняют доступ к INPUT
 $('#onoff').on('click', onoff);
 function onoff() {
     if ($('#onoff').is(':checked')) {
@@ -97,11 +98,3 @@ function repeate() {
     }
 };
 
-// f() запускающая отсчёт времени
-/*
-$('#alarm_input').keyup(getAlarm);
-function getAlarm(){
-    let input = $('#alarm_input').val();
-    return input
-}; 
-*/

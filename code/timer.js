@@ -47,10 +47,8 @@ function transform(milisec, vis, pause_btn, start_btn) {
                 if (SS < 10) { SS = "0" + SS };
                 let result = HH + ':' + MM + ':' + SS;
                 vis.html(result);
-                console.log('1: ' + milisec);
                 return milisec;
             } else {
-                console.log('2: ' + milisec);
             };
         };
         if (!start_btn.hasClass('hid')) {
