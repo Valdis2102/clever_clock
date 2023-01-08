@@ -20,11 +20,25 @@
     </header>
 
     <main>
+        <div class="container wrap">
+            <div class="btn">
+                <div class="box-1 hid" id="clas_tim">
+                    <div class="btn btn-one">
+                      <span id="sp_type">Go to Pomodoro technique</span>
+                    </div>
+                </div>
+                <div class="box-2" id="pomo_type">
+                    <div class="btn btn-one">
+                      <span>Go to classical timer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="wrap container">
+        <div class="wrap container hid"  id="classical_timer">
             <div class="title">TIMER settings</div>
             <div class="timer_option row">
-                <div class="input-group col-sm">
+                <div class="input-group col-sm" >
                     <button class="btn btn-outline-secondary" type="button" id="set_timer" onclick="setTimer($('#timer_input').val(), $('#timer'))" disabled="true">Set a timer</button>
                     <input type="time" id="timer_input" class="form-control" value="00:00:00" step="1">
                 </div>
@@ -64,6 +78,34 @@
                 <button type="button" class="btn btn-outline-secondary hid" id="timer_run2" onclick="run($('#timer2'), $('#timer_pause2'), $('#timer_run2'), $('#timer_start2'))">RUN</button>
             </div>
         </div>
+
+        <div class="wrap container" id="pomo_timer">
+            <div class="title">TIMER by Pomodoro technique</div>
+            <div class="timer_option row">
+                <div class="input-group col-sm">
+                    <button class="btn btn-outline-secondary" type="button" id="task_timer" onclick="setPomo()" disabled="true">Time per task</button>
+                    <input type="time" id="task_input" class="form-control" value="00:25:00" step="1">
+                </div>
+            </div>
+            <div class="timer" id="task_time">00:00:00</div>   
+            <div class="timer_option row">
+                <div class="input-group col-sm">
+                    <button class="btn btn-outline-secondary" type="button" id="break_timer" onclick="setPomo()" disabled="true">Break duration</button>
+                    <input type="time" id="break_input" class="form-control" value="00:05:00" step="2">
+                </div>              
+            </div>
+            <div class="timer" id="break_time">00:00:00</div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-secondary" id="pomo_start" onclick="startPomo(pomo_start, pomo_stop, pomo_pause, task_inp, break_inp)">Start_Pomo</button>
+                <button type="button" class="btn btn-outline-secondary hid" id="pomo_stop" onclick="stopPomo()">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="pomo_pause" onclick="pausePomo()" disabled="true">Pause</button>
+                <button type="button" class="btn btn-outline-secondary hid" id="pomo_run" onclick="runPomo()">RUN</button>
+            </div>
+            <div class="form-check form-switch col-sm">
+                <input class="form-check-input" type="checkbox" id="auto_pomo" value="0">
+                <label class="form-check-label" for="auto_pomo">Autorestart</label>
+            </div>
+        </div>
         
     </main>
 
@@ -96,5 +138,6 @@
     <script src="code/alarm.js"></script>
     <script src="code/SetAlarm.js"></script>
     <script src="code/LocalStorage.js"></script>
+    <script src="code/Pomodoro.js"></script>
 </body>
 </html>

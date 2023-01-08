@@ -62,7 +62,7 @@ function transform(milisec, vis, pause_btn, start_btn) {
     }, 1000);
 };
 //функция определяющая текущее значение в отсчёте таймера
-let ti = function tim(vis) {
+function tim(vis) {
     let time = vis[0].outerText;
     console.log(time);
     return time;
@@ -78,14 +78,14 @@ function paused(pause_btn, run_btn) {
 function run(vis, pause_btn, run_btn, start_btn) {
     run_btn.addClass('hid');
     pause_btn.removeClass('hid');
-    let bug = ti(vis);
+    let bug = tim(vis);
     let milis = ms(bug);
     console.log('pause off');
     transform(milis, vis, pause_btn, start_btn);
 };
 
 //Функция для RESET
-function timerStop(start_btn, stop_btn, inp, vis, pause_btn, run_btn) {
+function timerStop(start_btn, stop_btn, pause_btn, run_btn, inp, vis,) {
     stop_btn.addClass('hid');
     start_btn.removeClass('hid');
     run_btn.addClass('hid');

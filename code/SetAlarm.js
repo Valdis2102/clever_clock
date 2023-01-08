@@ -5,7 +5,6 @@ function transformDate() {
     let date = $('#date_input').val();
     let dateDate = date.split("-");
     let dateNum = dateDate.map(item => Number(item));
-    console.log('Trans Date');
     return dateNum;
 };
 
@@ -13,7 +12,6 @@ function transformTime() {
     let time = $('#time_input').val();
     let dateTime = time.split(":");
     let timeNum = dateTime.map(item => Number(item));
-    console.log('Trans Time');
     return timeNum;
 };
 
@@ -22,7 +20,6 @@ function user_set() {
     let date = transformDate();
     date[1] = date[1] - 1;
     let set_time = new Date(date[0], date[1], date[2], time[0], time[1]);
-    console.log('user_set');
     return set_time;
 };
 
