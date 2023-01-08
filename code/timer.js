@@ -14,7 +14,6 @@ function setTimer(inp, vis) {
 //расчёт милисекунд из input
 function ms(input) {
     let time = input;
-    console.log(time);
     let dataTime = time.split(":");
     let dataNum = dataTime.map(item => Number(item));
     let HH = dataNum[0];
