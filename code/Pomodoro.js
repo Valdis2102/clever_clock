@@ -33,6 +33,7 @@ let current_break_time = ms($('#break_time')[0].innerText);
 let auto_pomo = $('#auto_pomo');
 let con = 0;
 let laps = $('#laps');
+let pomo_skip = $('#pomo_skip');
 
 task_inp.keyup(setPomo);
 break_inp.keyup(setPomo);
@@ -59,11 +60,15 @@ function funcTasckRun() {
     if (pomo_run.hasClass('hid')) {
         if (current_task_milis > 0) {
             if (con % 2){
-                break_vis.html('00:25:00');
+                break_vis.html('00:00:05');
             };
             countdown(current_task_milis, task_vis, task_sound);
+            pomo_skip.addClass('hid');
+            pomo_stop.removeClass('hid');
         };
         if (current_task_milis == 0 && current_break_time > 0) {
+            pomo_skip.removeClass('hid');
+            pomo_stop.addClass('hid');
             countdown(current_break_time, break_vis, break_sound);
         };
         if (current_task_milis <= 0 && current_break_time <= 0) {
@@ -71,11 +76,13 @@ function funcTasckRun() {
                 stopPomo();
                 laps_coint();
                 console.log('autorepeate ON');
+                pomo_skip.addClass('hid');
                 startPomo(pomo_start, pomo_stop, pomo_pause, task_inp, break_inp);
             } else {
                 stopPomo();
                 console.log('autorepeate OFF');
                 laps_coint();
+                pomo_skip.addClass('hid');
             };
         };
     };
@@ -111,7 +118,7 @@ function stopPomo() {
     pomo_start.removeClass('hid');
     pomo_run.addClass('hid');
     pomo_pause.removeClass('hid').attr('disabled', true);
-    console.log('POMO-stoped');
+    console.log('STOP');
     clearInterval(intervalStart);
     task_inp.attr('readonly', false);
     break_inp.attr('readonly', false);
@@ -132,4 +139,13 @@ function runPomo() {
     intervalStart = setInterval(funcTasckRun, 1000);
 };
 
+function skipBreak(){
+    if (current_task_milis <= 0){
+        con++
+        clearInterval(intervalStart);
+        stopPomo();
+        pomo_skip.addClass('hid');
+        laps.html(con+1);
+    };
+};
 
