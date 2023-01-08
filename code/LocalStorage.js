@@ -86,12 +86,14 @@ function changeAlarmParameter(saved) {
 
 function pomoTimerLoad(task, breake) {
     if (task != '') {
+        console.log('task: ' + (task != ''));
         let default_task_time = $('#task_input')[0].defaultValue;
         $('#task_input').val(default_task_time);
     } else {
         $('#task_input').val(task);
     };
     if (breake != '') {
+        console.log('breake: ' + (breake != ''));
         let default_break_time = $('#break_input')[0].defaultValue;
         $('#break_input').val(default_break_time);
     } else {
