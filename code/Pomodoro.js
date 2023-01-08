@@ -59,7 +59,7 @@ function funcTasckRun() {
     if (pomo_run.hasClass('hid')) {
         if (current_task_milis > 0) {
             if (con % 2){
-                break_vis.html('00:00:05');
+                break_vis.html('00:25:00');
             };
             countdown(current_task_milis, task_vis, task_sound);
         };
