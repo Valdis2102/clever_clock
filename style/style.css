@@ -180,24 +180,8 @@ footer {
     .row {
         margin: auto;
     }
-
-    .input-group {
-        min-width: 100%;
-    }
-
+    
     .btn-group {
         width: 100%;
     }
-}
-
-@media (max-width: 500px){
-    .form-control{
-        min-width: 100%;   
-    }
-    .row{
-        margin: 0;
-        width: 100%;
-    }
-}
-
-;
+};
