@@ -43,6 +43,7 @@ footer {
     font-size: 1.5rem;
     background-color: rgb(119, 103, 131);
 }
+
 .form-control:read-only {
     background-color: rgb(119, 103, 131);
 }
@@ -83,17 +84,11 @@ footer {
 }
 
 .hid {
-    display: none;  
+    display: none;
 }
 
 .second-timer {
     display: none;
-}
-
-
-
-.btn_type {
-    background-color: none;
 }
 
 .btn-one {
@@ -192,4 +187,6 @@ footer {
     .btn-group {
         width: 100%;
     }
-};
+}
+
+;
