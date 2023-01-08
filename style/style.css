@@ -92,13 +92,14 @@ footer {
 }
 
 .btn-one {
-    color: #FFF;
+    color: rgb(211, 209, 209);
     transition: all 0.3s;
     position: relative;
 }
 
 .btn-one span {
     transition: all 0.3s;
+    color: rgb(211, 209, 209);
 }
 
 .btn-one::before {
@@ -185,6 +186,16 @@ footer {
     }
 
     .btn-group {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px){
+    .form-control{
+        min-width: 100%;   
+    }
+    .row{
+        margin: 0;
         width: 100%;
     }
 }
