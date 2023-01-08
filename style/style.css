@@ -162,7 +162,7 @@ footer {
     }
 
     .form-control {
-        font-size: 0.8rem;
+        font-size: 1.3rem;
     }
 
     .form-check {
@@ -180,8 +180,19 @@ footer {
     .row {
         margin: auto;
     }
-    
+
     .btn-group {
         width: 100%;
     }
-};
+}
+
+@media (max-width: 360px){
+    .input-group{
+        min-width: 100%;
+    }
+    .form-control {
+        font-size: 0.8rem;
+    }
+}
+
+;
