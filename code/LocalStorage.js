@@ -1,4 +1,6 @@
 window.onbeforeunload = function () {
+    let pomo_task_inp = $('#task_input').val();
+    let pomo_break_inp = $('#break_input').val();
     let date = $('#date_input').val();
     let time = $('#time_input').val();
     if ($('#repeate').is(':checked')) {
@@ -20,6 +22,8 @@ window.onbeforeunload = function () {
         time: time,
         rep: repeat,
         onoff: on,
+        task: pomo_task_inp,
+        break: pomo_break_inp,
     };
     localStorage.setItem('left', JSON.stringify(alarm));
 };
@@ -32,7 +36,8 @@ function getLocalData() {
 
 function loade() {
     let saved = getLocalData();
-    console.log(saved);
+    pomoTimerLoad(saved.task, saved.break);
+    setPomo();
     let cur_d = current_date();
     let cur_t = current_time();
     if (saved.date > cur_d) {
@@ -79,3 +84,17 @@ function changeAlarmParameter(saved) {
     };
 };
 
+function pomoTimerLoad(task, breake){
+    if($('#task_input').val(task) == 0){
+        let default_task_time = $('#task_input')[0].defaultValue;
+        $('#task_input').val(default_task_time);
+    }else{
+        $('#task_input').val(task);
+    };
+    if($('#break_input').val(breake) == 0){
+        let default_break_time = $('#break_input')[0].defaultValue;
+        $('#break_input').val(default_break_time);
+    }else{
+        $('#break_input').val(breake);
+    };
+}

@@ -2,7 +2,6 @@ let info = new Userinfo();
 
 async function city() {
     let res = await info.ip();
-    console.log(res.city);
     $('#city').html(res.city);
 };
 
@@ -39,13 +38,11 @@ function current_date() {
         day = '0' + day;
     };
     let month = 1 + now.getMonth();
-    console.log(month);
     if (month < 10) {
         month = '0' + month;
     };
     let year = now.getFullYear();
     let set = year + '-' + month + '-' + day;
-    console.log('current Date: ' + set);
     return set;
 };
 
@@ -56,7 +53,6 @@ function setAlarm() {
 
     let time = current_time();
     $('#time_input').val(time);
-    console.log('SetAlarm');
 };
 
 // f() работают с checkbox и меняют доступ к INPUT
