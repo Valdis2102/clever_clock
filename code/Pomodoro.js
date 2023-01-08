@@ -31,8 +31,8 @@ let break_vis = $('#break_time');
 let current_task_milis = ms($('#task_time')[0].innerText);
 let current_break_time = ms($('#break_time')[0].innerText);
 let auto_pomo = $('#auto_pomo');
-
-
+let con = 0;
+let laps = $('#laps');
 
 task_inp.keyup(setPomo);
 break_inp.keyup(setPomo);
@@ -54,10 +54,13 @@ function startPomo(start, stop, pause) {
 function funcTasckRun() {
     current_task_milis = ms($('#task_time')[0].innerText);
     current_break_time = ms($('#break_time')[0].innerText);
-    console.log($('#break_time')[0].innerText);
+    console.log(con);
 
     if (pomo_run.hasClass('hid')) {
         if (current_task_milis > 0) {
+            if (con % 2){
+                break_vis.html('00:00:05');
+            };
             countdown(current_task_milis, task_vis, task_sound);
         };
         if (current_task_milis == 0 && current_break_time > 0) {
@@ -66,15 +69,26 @@ function funcTasckRun() {
         if (current_task_milis <= 0 && current_break_time <= 0) {
             if (auto_pomo.is(':checked')) {
                 stopPomo();
+                laps_coint();
                 console.log('autorepeate ON');
                 startPomo(pomo_start, pomo_stop, pomo_pause, task_inp, break_inp);
             } else {
                 stopPomo();
                 console.log('autorepeate OFF');
+                laps_coint();
             };
         };
     };
 };
+
+function laps_coint(){
+    con++ ;
+    if (con > 0){
+        $('#first_lap').addClass('hid');
+        $('#title_laps').removeClass('hid');
+    }
+    laps.html(con+1);
+}
 
 function countdown(milisec, vis, sound) {
     milisec -= 1000;
