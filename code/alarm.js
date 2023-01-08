@@ -25,7 +25,7 @@ function current_time() {
     if (hourse < 10) { hourse = "0" + hourse };
     if (minutes < 10) { minutes = "0" + minutes };
     if (second < 10) { second = "0" + second };
-    let clock = hourse + " : " + minutes + " : " + second;
+    let clock = hourse + ":" + minutes + ":" + second;
     $('#clock').html(clock);
     let time = hourse + ":" + minutes;
     return time

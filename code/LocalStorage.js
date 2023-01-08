@@ -84,17 +84,21 @@ function changeAlarmParameter(saved) {
     };
 };
 
-function pomoTimerLoad(task, breake){
-    if($('#task_input').val(task) == 0){
+function pomoTimerLoad(task, breake) {
+    if ($('#task_input').val(task) = 0) {
         let default_task_time = $('#task_input')[0].defaultValue;
         $('#task_input').val(default_task_time);
-    }else{
+    } else {
         $('#task_input').val(task);
     };
-    if($('#break_input').val(breake) == 0){
+    if ($('#break_input').val(breake) = 0) {
         let default_break_time = $('#break_input')[0].defaultValue;
         $('#break_input').val(default_break_time);
-    }else{
+    } else {
         $('#break_input').val(breake);
     };
-}
+};
+
+function clear(){
+    localStorage.clear();
+};
